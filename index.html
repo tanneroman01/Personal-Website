@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanner Oman — Water Resources · Remote Sensing · Data Science</title>
+  <meta name="description" content="Portfolio of Tanner Oman: water-resources data science, remote sensing, and interactive mapping — Great Salt Lake functional flows, satellite-based debris-flow detection, and more.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="nav-brand" href="#top">Tanner Oman</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <!-- EDIT: drop your resume PDF into assets/ and this link will work -->
+        <li><a class="btn btn-small" href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container">
+        <p class="hero-kicker">Water resources · Remote sensing · Data science</p>
+        <h1>Hi, I'm Tanner.</h1>
+        <p class="hero-lead">
+          I build tools that turn environmental data into something people can
+          actually use — interactive maps of streamflow behavior, machine-learning
+          models that read satellite imagery, and analysis pipelines that hold up
+          to real-world messiness.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View my work</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <!-- decorative hydrograph-style wave -->
+      <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,80 C240,20 360,110 600,70 C840,30 1000,100 1200,60 C1320,40 1400,70 1440,55 L1440,120 L0,120 Z"/>
+      </svg>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <!-- EDIT: tune this bio — degree, program, and anything else you want public -->
+            <p>
+              I work at the intersection of hydrology, remote sensing, and software.
+              My recent work centers on the Great Salt Lake basin — characterizing
+              the functional flow behavior of the streams that feed the lake and
+              making those metrics explorable for researchers and water managers.
+            </p>
+            <p>
+              I like problems where the hard part isn't the model, it's the data:
+              rare events, seasonal signals, leaky validation splits, and datasets
+              that live behind cloud APIs. Most of my day-to-day is Python,
+              geospatial tooling, and a healthy skepticism of my own results.
+            </p>
+          </div>
+          <div class="about-skills">
+            <h3>Toolbox</h3>
+            <ul class="tag-list">
+              <li>Python</li>
+              <li>pandas / scikit-learn</li>
+              <li>Google Earth Engine</li>
+              <li>ArcGIS Online</li>
+              <li>Experience Builder</li>
+              <li>Matplotlib</li>
+              <li>Time-series ML</li>
+              <li>SQL</li>
+              <li>Git</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <h2>Projects</h2>
+
+        <article class="project">
+          <div class="project-banner banner-gsl" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 21s-6-5.1-6-10a6 6 0 1 1 12 0c0 4.9-6 10-6 10Z"/>
+              <circle cx="12" cy="11" r="2.5"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <h3>Great Salt Lake Functional Flows Explorer</h3>
+            <p class="project-meta">ArcGIS Experience Builder · Utah State University</p>
+            <p>
+              An interactive web app for exploring functional-flow metrics — peak
+              flows, recessions, summer and winter low flows — across ~2,500 stream
+              segments in the Great Salt Lake basin. Users pick a stream on a 3D map
+              and see percentile tables of flow metrics by water-year type, plus
+              hydrograph schematics comparing predicted and observed flow behavior
+              at gaged sites.
+            </p>
+            <ul class="tag-list">
+              <li>ArcGIS Experience Builder</li>
+              <li>Feature services</li>
+              <li>Python figure pipeline</li>
+              <li>Hydrology</li>
+            </ul>
+            <div class="project-links">
+              <a class="btn btn-primary btn-small" href="https://experience.arcgis.com/experience/9182814d278e4d0f98d760747345fafc" target="_blank" rel="noopener">Open the live app ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-banner banner-debris" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 17l4-8 4 5 3-6 4 9"/>
+              <path d="M3 21h18"/>
+              <circle cx="19" cy="5" r="2"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <h3>Satellite-Based Debris-Flow Detection</h3>
+            <p class="project-meta">Machine learning · Google Earth Engine</p>
+            <p>
+              Detecting when debris flows happened from space: a gradient-boosted
+              model that reads multivariate time series of spectral indices (NDVI,
+              NBR, BSI, NDWI) and flags event dates. The interesting challenges are
+              rare-event class imbalance, time-aware cross-validation, and pushing
+              feature engineering server-side in Earth Engine so iteration stays
+              fast offline.
+            </p>
+            <ul class="tag-list">
+              <li>scikit-learn HGBT</li>
+              <li>Google Earth Engine</li>
+              <li>Spectral indices</li>
+              <li>Imbalanced time series</li>
+            </ul>
+            <div class="project-links">
+              <!-- EDIT: add a GitHub repo or write-up link when you have one -->
+              <span class="project-note">Write-up coming soon</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section">
+      <div class="container contact">
+        <h2>Get in touch</h2>
+        <p>
+          Interested in the work, or have a water-data problem that needs solving?
+          I'd love to hear from you.
+        </p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:tanner.oman01@gmail.com">tanner.oman01@gmail.com</a>
+          <!-- EDIT: replace # with your real profile URLs, or delete the ones you don't use -->
+          <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Tanner Oman · Built with plain HTML &amp; CSS</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

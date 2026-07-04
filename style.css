@@ -1,0 +1,328 @@
+/* ============================================================
+   Tanner Oman — personal site
+   Accent teal (#2A8E96) matches the hydromod figure palette.
+   ============================================================ */
+
+:root {
+  --accent: #2A8E96;
+  --accent-dark: #1F6B72;
+  --accent-soft: #E3F1F2;
+  --pink: #DB7E9C;            /* observed-flow pink, used sparingly */
+  --text: #1E2A2B;
+  --text-muted: #5A6B6C;
+  --bg: #FFFFFF;
+  --bg-alt: #F4F8F8;
+  --border: #DCE6E6;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(30, 42, 43, 0.08);
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #4FB3BB;
+    --accent-dark: #6FC7CE;
+    --accent-soft: #143437;
+    --text: #E4EDED;
+    --text-muted: #9AB0B1;
+    --bg: #101B1C;
+    --bg-alt: #162425;
+    --border: #24393A;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+h1, h2, h3 { line-height: 1.2; }
+
+h2 {
+  font-size: 1.75rem;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+}
+
+a { color: var(--accent-dark); }
+
+/* ---------- header / nav ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.nav-links a:hover { color: var(--accent-dark); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  padding: 5rem 0 7rem;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--accent-soft) 100%);
+  overflow: hidden;
+}
+
+.hero-kicker {
+  color: var(--accent-dark);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  margin: 0 0 1rem;
+}
+
+.hero-lead {
+  max-width: 40rem;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin: 0 0 2rem;
+}
+
+.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.hero-wave path { fill: var(--bg); }
+
+/* ---------- buttons ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover { background: var(--accent-dark); color: #fff; }
+
+.btn-ghost {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.btn-ghost:hover { background: var(--accent-soft); }
+
+.btn-small { padding: 0.35rem 0.9rem; font-size: 0.9rem; }
+
+/* ---------- sections ---------- */
+
+.section { padding: 4rem 0; }
+
+.section-alt { background: var(--bg-alt); }
+
+/* ---------- about ---------- */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2.5rem;
+}
+
+.about-text p:first-child { margin-top: 0; }
+
+.about-skills h3 { margin-top: 0; }
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.tag-list li {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ---------- projects ---------- */
+
+.project {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.project-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.project-banner svg { width: 64px; height: 64px; }
+
+.banner-gsl { background: linear-gradient(160deg, var(--accent) 0%, var(--accent-dark) 100%); }
+
+.banner-debris { background: linear-gradient(160deg, #8A6D5C 0%, #5C4638 100%); }
+
+.project-body { padding: 1.5rem 1.75rem; }
+
+.project-body h3 { margin: 0 0 0.25rem; font-size: 1.3rem; }
+
+.project-meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem;
+}
+
+.project-links { margin-top: 1rem; }
+
+.project-note {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* ---------- contact ---------- */
+
+.contact { text-align: center; }
+
+.contact h2 { border-bottom-color: var(--accent); }
+
+.contact p { max-width: 34rem; margin: 0 auto 1.5rem; color: var(--text-muted); }
+
+.contact-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 720px) {
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 1.25rem 1rem;
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links li { width: 100%; padding: 0.5rem 0; }
+
+  .about-grid { grid-template-columns: 1fr; }
+
+  .project { grid-template-columns: 1fr; }
+
+  .project-banner { height: 110px; }
+}
