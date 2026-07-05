@@ -401,7 +401,35 @@ a:hover { color: var(--red-bright); }
 
 .section-more { margin-top: 2rem; text-align: center; }
 
+.panel-media--photo { background: var(--bg-panel); }
+
+.panel-media--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
 /* ---------- project detail pages ---------- */
+
+.page-banner {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border-faint);
+  margin-bottom: 1.5rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .container--narrow { max-width: 760px; }
 
