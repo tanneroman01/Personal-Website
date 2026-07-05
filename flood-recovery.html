@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post-Fire Flood Prediction: Vegetation Recovery Metrics — Tanner Oman</title>
+  <meta name="description" content="Satellite-derived vegetation recovery metrics for predicting post-fire flood magnitude across ~2,500 flood events in 219 burned watersheds.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="nav-brand" href="index.html">Tanner Oman</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="btn btn-small" href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <article class="section project-page">
+      <div class="container container--narrow">
+
+        <a class="back-link" href="projects.html">← All projects</a>
+
+        <h1>Post-Fire Flood Prediction: Vegetation Recovery Metrics</h1>
+        <p class="project-meta">Ongoing · Remote sensing · Google Earth Engine</p>
+
+        <figure class="figure-plate">
+          <img src="assets/img/flood_sitemap.jpg"
+               alt="Sentinel-2 satellite image of the 416 Fire near Durango, Colorado, with the burn perimeter in red inside the contributing watershed boundary in cyan">
+          <figcaption>
+            The 416 Fire (red perimeter) inside its contributing watershed (cyan),
+            on Sentinel-2 imagery — one of 219 burned basins in the analysis.
+          </figcaption>
+        </figure>
+
+        <p>
+          Wildfire changes how a watershed answers rain. Strip the vegetation off
+          a hillslope and an ordinary storm can turn into a damaging flood — and
+          how big that flood gets, and how the risk fades as plants grow back,
+          depends heavily on how much vegetation has recovered. Yet most post-fire
+          flood models represent that recovery crudely, if at all.
+        </p>
+
+        <p>
+          My piece of this project is a set of <strong>vegetation recovery
+          metrics</strong> that put a number on exactly that: for each flood
+          event, how far had the watershed's vegetation bounced back at the moment
+          the flood happened?
+        </p>
+
+        <h2 class="page-subhead">How the metric works</h2>
+        <p>
+          For roughly 2,500 flood events across 219 burned watersheds (from the
+          Ebel et al. 2024 dataset), the pipeline compares vegetation in the flood
+          year's growing season against the average of the five growing seasons
+          <em>before</em> the fire. That before-versus-after comparison becomes a
+          recovery ratio: near 1 means vegetation is back to its pre-fire baseline;
+          well below 1 means the basin is still bare and primed for a bigger flood.
+          Four spectral indices — NDVI, NBR, GRVI, and MODIS LAI — each get their
+          own metric, computed both over the whole watershed and over just the
+          burned area inside it.
+        </p>
+
+        <figure class="figure-plate">
+          <img src="assets/img/flood_lai.jpg"
+               alt="Side-by-side maps of leaf area index before the fire (2013–2017 average) and after (2020), showing reduced vegetation inside the burn perimeter">
+          <figcaption>
+            Leaf area index before and after the fire — the drop inside the burn
+            perimeter is the signal the recovery metrics are built to capture.
+          </figcaption>
+        </figure>
+
+        <h2 class="page-subhead">The messy parts</h2>
+        <ul class="prose-list">
+          <li>
+            <strong>Many satellites, one comparable signal.</strong> Events span
+            decades, so the pipeline picks the right sensor for each date —
+            Sentinel-2 after 2017, Landsat 8 back to 2013, Landsat 5/7 before that —
+            with matching cloud masks and band mappings so the indices stay
+            comparable across platforms.
+          </li>
+          <li>
+            <strong>All server-side, resumable.</strong> The imagery work runs in
+            Google Earth Engine, parallelized across events and growing seasons,
+            with checkpointing so a multi-thousand-event run can pick up where it
+            left off.
+          </li>
+          <li>
+            <strong>Rebuilding the record.</strong> The source flood table had no
+            event dates, so I reconstructed them by joining flood records to MTBS
+            fire perimeters, pulled 200+ watershed boundaries from the USGS NLDI
+            API, and intersected each burn with its watershed.
+          </li>
+        </ul>
+
+        <ul class="tag-list">
+          <li>Google Earth Engine</li>
+          <li>Sentinel-2 · Landsat</li>
+          <li>NDVI · LAI · NBR · GRVI</li>
+          <li>Python · geopandas</li>
+          <li>Post-fire hydrology</li>
+        </ul>
+
+        <div class="project-links">
+          <span class="project-note">Ongoing — recovery metrics feeding a random-forest flood model</span>
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Tanner Oman · Built with plain HTML &amp; CSS</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

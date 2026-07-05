@@ -470,6 +470,21 @@ a:hover { color: var(--red-bright); }
   padding-top: 0.75rem;
 }
 
+.page-subhead {
+  font-size: 1.4rem;
+  margin: 2.25rem 0 0.75rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border-faint);
+  display: block;
+}
+
+.prose-list {
+  margin: 0 0 1.5rem;
+  padding-left: 1.4rem;
+}
+
+.prose-list li { margin-bottom: 0.75rem; }
+
 /* ---------- pipeline list ---------- */
 
 .pipeline { margin: 0 0 1.5rem; padding-left: 1.4rem; }
