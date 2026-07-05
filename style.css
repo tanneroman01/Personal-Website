@@ -333,6 +333,132 @@ a:hover { color: var(--red-bright); }
   font-size: 0.95rem;
 }
 
+/* ---------- projects page: panel grid ---------- */
+
+.page-head { padding-bottom: 2rem; }
+
+.page-head h1 {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  margin: 0 0 0.75rem;
+}
+
+.page-lead { color: var(--text-muted); max-width: 40rem; margin: 0; }
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s;
+}
+
+.panel:hover { border-color: var(--red-bright); color: var(--text); }
+
+.panel-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  border-bottom: 1px solid var(--border-faint);
+}
+
+.panel-media--plate { background: #fff; padding: 0.75rem; }
+
+.panel-media--plate img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.panel-media--icon { background: var(--bg-panel); color: var(--red-bright); }
+
+.panel-media--icon svg { width: 64px; height: 64px; }
+
+.panel-body { padding: 1.25rem 1.5rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+
+.panel-body h3 { margin: 0 0 0.5rem; font-size: 1.25rem; }
+
+.panel-body p { color: var(--text-muted); margin: 0 0 1rem; flex: 1; }
+
+.panel-body .tag-list { margin: 0 0 1rem; }
+
+.panel-cta {
+  color: var(--red-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+}
+
+.panel:hover .panel-cta { text-decoration: underline; }
+
+.section-more { margin-top: 2rem; text-align: center; }
+
+/* ---------- project detail pages ---------- */
+
+.container--narrow { max-width: 760px; }
+
+.back-link {
+  display: inline-block;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.back-link:hover { color: var(--red-bright); }
+
+.project-page h1 {
+  font-size: clamp(1.9rem, 4.5vw, 2.75rem);
+  margin: 0 0 0.5rem;
+}
+
+.project-page .project-meta { margin-bottom: 2rem; }
+
+.project-page .tag-list { margin: 1.5rem 0; }
+
+.figure-plate {
+  margin: 0 0 2rem;
+  background: #fff;
+  border: 1px solid var(--border-faint);
+  padding: 1rem;
+}
+
+.figure-plate img { display: block; width: 100%; }
+
+.figure-plate figcaption {
+  color: #444;
+  font-size: 0.85rem;
+  font-style: italic;
+  padding-top: 0.75rem;
+}
+
+/* ---------- pipeline list ---------- */
+
+.pipeline { margin: 0 0 1.5rem; padding-left: 1.4rem; }
+
+.pipeline li { margin-bottom: 0.75rem; }
+
+.stage-status {
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.05rem 0.45rem;
+  margin-left: 0.35rem;
+  white-space: nowrap;
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 720px) {
@@ -367,4 +493,6 @@ a:hover { color: var(--red-bright); }
   }
 
   .project--imaged .project-banner { height: auto; }
+
+  .panel-grid { grid-template-columns: 1fr; }
 }

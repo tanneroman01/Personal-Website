@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Tanner Oman</title>
+  <meta name="description" content="Projects by Tanner Oman: Great Salt Lake functional flows, satellite-based post-fire debris-flow detection, and more.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="nav-brand" href="index.html">Tanner Oman</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="btn btn-small" href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="section page-head">
+      <div class="container">
+        <h1>Projects</h1>
+        <p class="page-lead">Selected work in rivers, hazards, and environmental data. Click a panel for the full story.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="panel-grid">
+
+          <a class="panel" href="gsl-flows.html">
+            <div class="panel-media panel-media--plate">
+              <img src="assets/img/hydrograph_10128500.png" loading="lazy"
+                   alt="Hydrograph schematic comparing predicted and observed functional flow metrics">
+            </div>
+            <div class="panel-body">
+              <h3>Great Salt Lake Functional Flows Explorer</h3>
+              <p>Interactive maps of functional-flow metrics for ~2,500 stream segments feeding the Great Salt Lake.</p>
+              <ul class="tag-list">
+                <li>ArcGIS Experience Builder</li>
+                <li>Hydrology</li>
+              </ul>
+              <span class="panel-cta">Read more →</span>
+            </div>
+          </a>
+
+          <a class="panel" href="scar.html">
+            <div class="panel-media panel-media--icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 17l4-8 4 5 3-6 4 9"/>
+                <path d="M3 21h18"/>
+                <circle cx="19" cy="5" r="2"/>
+              </svg>
+            </div>
+            <div class="panel-body">
+              <h3>SCAR: Satellite-based Classification of post-fire Alluvial Response</h3>
+              <p>Building the empirical record that post-fire debris-flow risk models are missing — from orbit. Ongoing.</p>
+              <ul class="tag-list">
+                <li>Machine learning</li>
+                <li>Google Earth Engine</li>
+              </ul>
+              <span class="panel-cta">Read more →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Tanner Oman · Built with plain HTML &amp; CSS</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

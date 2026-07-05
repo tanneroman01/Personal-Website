@@ -17,7 +17,7 @@
       </button>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
         <!-- EDIT: drop your resume PDF into assets/ and this link will work -->
         <li><a class="btn btn-small" href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
@@ -44,7 +44,7 @@
           to real-world messiness.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View my work</a>
+          <a class="btn btn-primary" href="projects.html">View my work</a>
           <a class="btn btn-ghost" href="#contact">Get in touch</a>
         </div>
       </div>
@@ -58,21 +58,21 @@
           <div class="about-text">
             <!-- EDIT: tune this bio — degree, program, and anything else you want public -->
             <p>
-              I am a water-resources researcher interestied in how rivers work,
-              connecting hydrology, fluvial geomorpology, and aquatic ecology. 
+              I am a water-resources researcher interested in how rivers work,
+              connecting hydrology, fluvial geomorphology, and aquatic ecology.
               Most of my work integrates field data collection, geographic information systems
               (GIS), remote sensing (e.g., Landsat, MODIS, Sentinel products), and statistical
-              and machine learning models to answer critical applied research questions. 
+              and machine learning models to answer critical applied research questions.
               Deliverables from my work include interactive web applications, novel GIS tools,
-              reproducible analysis pipelines, and analyses supporting peer reviewed research,
+              reproducible analysis pipelines, and analyses supporting peer-reviewed research,
               all with the goal of helping water resource managers make science-based decisions
-              about rivers in the Mountain West. 
-
-
-              What drives me is pretty simple: rivers are among the most biodiverse and most 
-              degraded ecosystems on the planet, and there's real work to do conserving and 
+              about rivers in the Mountain West.
+            </p>
+            <p>
+              What drives me is pretty simple: rivers are among the most biodiverse and most
+              degraded ecosystems on the planet, and there's real work to do conserving and
               restoring them. I want to be part of that work in a way that's both scientifically
-              rigorous and practically useful. 
+              rigorous and practically useful.
             </p>
             <p>
               I like problems where the hard part isn't the model, it's the data:
@@ -104,81 +104,26 @@
       <div class="container">
         <h2>Projects</h2>
 
-        <article class="project project--imaged">
-          <div class="project-banner">
-            <img src="assets/img/hydrograph_10128500.png" loading="lazy"
-                 alt="Hydrograph schematic for USGS gage 10128500 comparing predicted and observed functional flow metrics across a water year">
-          </div>
-          <div class="project-body">
-            <h3>Great Salt Lake Functional Flows Explorer</h3>
-            <p class="project-meta">ArcGIS Experience Builder · Utah State University</p>
-            <p>
-              An interactive web app for exploring functional-flow metrics — peak
-              flows, recessions, summer and winter low flows — across ~2,500 stream
-              segments in the Great Salt Lake basin. Users pick a stream on a 3D map
-              and see percentile tables of flow metrics by water-year type, plus
-              hydrograph schematics comparing predicted and observed flow behavior
-              at gaged sites.
-            </p>
-            <ul class="tag-list">
-              <li>ArcGIS Experience Builder</li>
-              <li>Feature services</li>
-              <li>Python figure pipeline</li>
-              <li>Hydrology</li>
-            </ul>
-            <div class="project-links">
-              <a class="btn btn-primary btn-small" href="https://experience.arcgis.com/experience/9182814d278e4d0f98d760747345fafc" target="_blank" rel="noopener">Open the live app ↗</a>
+        <div class="panel-grid">
+          <a class="panel" href="gsl-flows.html">
+            <div class="panel-body">
+              <h3>Great Salt Lake Functional Flows Explorer</h3>
+              <p>Interactive maps of functional-flow metrics for ~2,500 stream segments feeding the Great Salt Lake.</p>
+              <span class="panel-cta">Read more →</span>
             </div>
-          </div>
-        </article>
+          </a>
+          <a class="panel" href="scar.html">
+            <div class="panel-body">
+              <h3>SCAR: Satellite-based Classification of post-fire Alluvial Response</h3>
+              <p>Building the empirical record that post-fire debris-flow risk models are missing — from orbit. Ongoing.</p>
+              <span class="panel-cta">Read more →</span>
+            </div>
+          </a>
+        </div>
 
-        <article class="project">
-          <div class="project-banner banner-debris" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 17l4-8 4 5 3-6 4 9"/>
-              <path d="M3 21h18"/>
-              <circle cx="19" cy="5" r="2"/>
-            </svg>
-          </div>
-          <div class="project-body">
-            <h3>SCAR: Satellite-based Classification of post-fire Alluvial Response</h3>
-            <meta> 
-            <p>
-              For decades researchers have lamented the fact that risk models for 
-              post fire debris flows are starved of the one thing they need most: an emperical 
-              record of when and where debris flows actually happened, and the associated storms
-              that trigger them. Tis ongoing project aims to build that record from remotely-sensed data
-              end to end. . The interesting challenges are
-              rare-event class imbalance, time-aware cross-validation, and pushing
-              feature engineering server-side in Earth Engine so iteration stays
-              fast offline.
-              1. Find the debris flows. A semantic segementation convolutional neural network (CNN)
-              (YOLO-based) scans the burn scar for the features debris flows leave behind (e.g., deposits, scarps)
-              burn area for the features tat debris flows leave behind, mapping where events occurred.
-              2. Date the debris flows. At each detected site, a hist-gradient-boosted decision tree model
-              (with GEE server side feature engineering) reads multivariate
-              time series of spectral indices and synthetic aperature radar, and pins down when the debris flow occurred. 
-              3. Explain them. Wit when and where in hand, each event is attached to its drivers 
-              (precipitation, burn severity, terrain, geology) building the empirical training data te field currently lacks. 
-              a gradient-boosted
-              4. Learn from the data. A risk model trains on those features to predict what produces debris flows, and under
-              what conditions. 
-              5. Deploy at burn time. When a new fire burns, the model runs on the fresh burn scar, locally calibrated on older
-              fires nearby producing hazard estimates grounded in what similar terrain actually did. 
-              
-            </p>
-            <ul class="tag-list">
-              <li>scikit-learn HGBT</li>
-              <li>Google Earth Engine</li>
-              <li>Spectral indices</li>
-              <li>Imbalanced time series</li>
-            </ul>
-            <div class="project-links">
-              <!-- EDIT: add a GitHub repo or write-up link when you have one -->
-              <span class="project-note">Write-up coming soon</span>
-            </div>
-          </div>
-        </article>
+        <div class="section-more">
+          <a class="btn btn-ghost" href="projects.html">All projects →</a>
+        </div>
 
       </div>
     </section>

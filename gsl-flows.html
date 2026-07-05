@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Great Salt Lake Functional Flows Explorer — Tanner Oman</title>
+  <meta name="description" content="An interactive ArcGIS Experience Builder app for exploring functional-flow metrics across ~2,500 stream segments in the Great Salt Lake basin.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="nav-brand" href="index.html">Tanner Oman</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="btn btn-small" href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <article class="section project-page">
+      <div class="container container--narrow">
+
+        <a class="back-link" href="projects.html">← All projects</a>
+
+        <h1>Great Salt Lake Functional Flows Explorer</h1>
+        <p class="project-meta">ArcGIS Experience Builder · Utah State University</p>
+
+        <figure class="figure-plate">
+          <img src="assets/img/hydrograph_10128500.png"
+               alt="Hydrograph schematic for USGS gage 10128500 comparing predicted and observed functional flow metrics across a water year">
+          <figcaption>
+            Hydrograph schematic comparing predicted (teal) and observed (pink)
+            functional-flow metrics at USGS gage 10128500.
+          </figcaption>
+        </figure>
+
+        <p>
+          An interactive web app for exploring functional-flow metrics — peak
+          flows, recessions, summer and winter low flows — across ~2,500 stream
+          segments in the Great Salt Lake basin. Users pick a stream on a 3D map
+          and see percentile tables of flow metrics by water-year type, plus
+          hydrograph schematics comparing predicted and observed flow behavior
+          at gaged sites.
+        </p>
+
+        <ul class="tag-list">
+          <li>ArcGIS Experience Builder</li>
+          <li>Feature services</li>
+          <li>Python figure pipeline</li>
+          <li>Hydrology</li>
+        </ul>
+
+        <div class="project-links">
+          <a class="btn btn-primary" href="https://experience.arcgis.com/experience/9182814d278e4d0f98d760747345fafc" target="_blank" rel="noopener">Open the live app ↗</a>
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Tanner Oman · Built with plain HTML &amp; CSS</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

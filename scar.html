@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCAR: Satellite-based Classification of post-fire Alluvial Response — Tanner Oman</title>
+  <meta name="description" content="An ongoing project building the empirical record post-fire debris-flow risk models are missing — CNN event detection, time-series dating, and locally calibrated hazard prediction.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="nav-brand" href="index.html">Tanner Oman</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="btn btn-small" href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <article class="section project-page">
+      <div class="container container--narrow">
+
+        <a class="back-link" href="projects.html">← All projects</a>
+
+        <h1>SCAR: Satellite-based Classification of post-fire Alluvial Response</h1>
+        <p class="project-meta">Ongoing · Machine learning · Google Earth Engine</p>
+
+        <p>
+          For decades, researchers have lamented that risk models for post-fire
+          debris flows are starved of the one thing they need most: an empirical
+          record of when and where debris flows actually happened, and of the
+          storms that triggered them. This ongoing project aims to build that
+          record from remotely sensed data, end to end:
+        </p>
+
+        <ol class="pipeline">
+          <li>
+            <strong>Find the debris flows.</strong> A semantic-segmentation
+            convolutional neural network (YOLO-based) scans the burn scar for
+            the features debris flows leave behind — deposits, scarps — mapping
+            <em>where</em> events occurred.
+            <span class="stage-status">planned</span>
+          </li>
+          <li>
+            <strong>Date them.</strong> At each detected site, a
+            histogram-gradient-boosted decision tree model reads multivariate
+            time series of spectral indices and synthetic-aperture radar and
+            pins down <em>when</em> the flow occurred.
+            <span class="stage-status">in progress</span>
+          </li>
+          <li>
+            <strong>Explain them.</strong> With when and where in hand, each
+            event is attached to its drivers — precipitation, burn severity,
+            terrain, geology — building the empirical training data the field
+            currently lacks.
+            <span class="stage-status">planned</span>
+          </li>
+          <li>
+            <strong>Learn from the data.</strong> A risk model trains on those
+            features to predict what produces debris flows, and under what
+            conditions.
+            <span class="stage-status">planned</span>
+          </li>
+          <li>
+            <strong>Deploy at burn time.</strong> When a new fire burns, the
+            model runs on the fresh burn scar, locally calibrated on older
+            fires nearby — producing hazard estimates grounded in what similar
+            terrain actually did.
+            <span class="stage-status">planned</span>
+          </li>
+        </ol>
+
+        <p>
+          The interesting challenges so far: rare-event class imbalance,
+          time-aware cross-validation, and keeping iteration fast by pushing
+          the heavy feature engineering server-side in Earth Engine.
+        </p>
+
+        <ul class="tag-list">
+          <li>scikit-learn HGBT</li>
+          <li>YOLO segmentation</li>
+          <li>Google Earth Engine</li>
+          <li>Spectral indices · SAR</li>
+          <li>Imbalanced time series</li>
+        </ul>
+
+        <div class="project-links">
+          <span class="project-note">Currently building stage 2 of 5 — results and write-up to follow</span>
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Tanner Oman · Built with plain HTML &amp; CSS</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
