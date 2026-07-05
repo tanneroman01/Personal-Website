@@ -130,9 +130,43 @@ a:hover { color: var(--red-bright); }
   margin: 0 0 1rem;
 }
 
+.hero .container { perspective: 900px; }
+
 .hero h1 {
+  display: inline-block;
   font-size: clamp(2.75rem, 7vw, 4.25rem);
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
+  animation: name-spin 8s linear infinite;
+}
+
+@keyframes name-spin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 { animation: none; }
+}
+
+.hero-links {
+  display: flex;
+  gap: 1.75rem;
+  margin: 0 0 1.75rem;
+}
+
+.hero-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+}
+
+.hero-links a:hover {
+  color: var(--red-bright);
+  border-color: var(--red-bright);
 }
 
 .hero-lead {
@@ -241,6 +275,23 @@ a:hover { color: var(--red-bright); }
 
 .project-banner svg { width: 64px; height: 64px; }
 
+/* image-banner variant: full-width figure plate above the text */
+.project--imaged { grid-template-columns: 1fr; }
+
+.project--imaged .project-banner {
+  background: #fff;
+  border-right: none;
+  border-bottom: 1px solid var(--border-faint);
+  padding: 1.25rem;
+}
+
+.project--imaged .project-banner img {
+  display: block;
+  width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+}
+
 .project-body { padding: 1.75rem 2rem; }
 
 .project-body h3 { margin: 0 0 0.25rem; font-size: 1.5rem; }
@@ -314,4 +365,6 @@ a:hover { color: var(--red-bright); }
     border-right: none;
     border-bottom: 1px solid var(--border-faint);
   }
+
+  .project--imaged .project-banner { height: auto; }
 }
