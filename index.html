@@ -58,10 +58,21 @@
           <div class="about-text">
             <!-- EDIT: tune this bio — degree, program, and anything else you want public -->
             <p>
-              I work at the intersection of hydrology, remote sensing, and software.
-              My recent work centers on the Great Salt Lake basin — characterizing
-              the functional flow behavior of the streams that feed the lake and
-              making those metrics explorable for researchers and water managers.
+              I am a water-resources researcher interestied in how rivers work,
+              connecting hydrology, fluvial geomorpology, and aquatic ecology. 
+              Most of my work integrates field data collection, geographic information systems
+              (GIS), remote sensing (e.g., Landsat, MODIS, Sentinel products), and statistical
+              and machine learning models to answer critical applied research questions. 
+              Deliverables from my work include interactive web applications, novel GIS tools,
+              reproducible analysis pipelines, and analyses supporting peer reviewed research,
+              all with the goal of helping water resource managers make science-based decisions
+              about rivers in the Mountain West. 
+
+
+              What drives me is pretty simple: rivers are among the most biodiverse and most 
+              degraded ecosystems on the planet, and there's real work to do conserving and 
+              restoring them. I want to be part of that work in a way that's both scientifically
+              rigorous and practically useful. 
             </p>
             <p>
               I like problems where the hard part isn't the model, it's the data:
@@ -130,15 +141,31 @@
             </svg>
           </div>
           <div class="project-body">
-            <h3>Satellite-Based Debris-Flow Detection</h3>
-            <p class="project-meta">Machine learning · Google Earth Engine</p>
+            <h3>SCAR: Satellite-based Classification of post-fire Alluvial Response</h3>
+            <meta> 
             <p>
-              Detecting when debris flows happened from space: a gradient-boosted
-              model that reads multivariate time series of spectral indices (NDVI,
-              NBR, BSI, NDWI) and flags event dates. The interesting challenges are
+              For decades researchers have lamented the fact that risk models for 
+              post fire debris flows are starved of the one thing they need most: an emperical 
+              record of when and where debris flows actually happened, and the associated storms
+              that trigger them. Tis ongoing project aims to build that record from remotely-sensed data
+              end to end. . The interesting challenges are
               rare-event class imbalance, time-aware cross-validation, and pushing
               feature engineering server-side in Earth Engine so iteration stays
               fast offline.
+              1. Find the debris flows. A semantic segementation convolutional neural network (CNN)
+              (YOLO-based) scans the burn scar for the features debris flows leave behind (e.g., deposits, scarps)
+              burn area for the features tat debris flows leave behind, mapping where events occurred.
+              2. Date the debris flows. At each detected site, a hist-gradient-boosted decision tree model
+              (with GEE server side feature engineering) reads multivariate
+              time series of spectral indices and synthetic aperature radar, and pins down when the debris flow occurred. 
+              3. Explain them. Wit when and where in hand, each event is attached to its drivers 
+              (precipitation, burn severity, terrain, geology) building the empirical training data te field currently lacks. 
+              a gradient-boosted
+              4. Learn from the data. A risk model trains on those features to predict what produces debris flows, and under
+              what conditions. 
+              5. Deploy at burn time. When a new fire burns, the model runs on the fresh burn scar, locally calibrated on older
+              fires nearby producing hazard estimates grounded in what similar terrain actually did. 
+              
             </p>
             <ul class="tag-list">
               <li>scikit-learn HGBT</li>
